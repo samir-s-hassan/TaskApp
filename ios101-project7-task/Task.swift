@@ -5,7 +5,7 @@
 import UIKit
 
 // The Task model
-struct Task {
+struct Task: Codable {
 
     // The task's title
     var title: String
@@ -53,11 +53,19 @@ struct Task {
 // MARK: - Task + UserDefaults
 extension Task {
 
+    // The Tasks key: a computed property that returns a String.
+    //    - Use when saving/retrieving or removing from UserDefaults
+    //    - `static` means this property is "Type Property" (i.e. associated with the Task "type", not any particular movie instance)
+    //    - We can access this property anywhere like this... `Task.tasksKey` (i.e. Type.property)
+    static var tasksKey: String {
+        return "Tasks"
+    }
 
     // Given an array of tasks, encodes them to data and saves to UserDefaults.
     static func save(_ tasks: [Task]) {
 
-        // TODO: Save the array of tasks
+        let encodedData = try! JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(encodedData, forKey: tasksKey)
     }
 
     // Retrieve an array of saved tasks from UserDefaults.
@@ -71,6 +79,20 @@ extension Task {
     // Add a new task or update an existing task with the current task.
     func save() {
 
-        // TODO: Save the current task
+        // 1. Retrieve the array of saved tasks
+        var tasksArray = Task.getTasks()
+        
+        // 2. Check if the current task already exists in the tasks array
+        if let index = tasksArray.firstIndex(where: { $0.id == self.id }) {
+            // 3. If it does, update the existing task
+            tasksArray.remove(at: index) // Remove the existing task
+            tasksArray.insert(self, at: index) // Insert the updated task
+        } else {
+            // 4. If no matching task already exists, add the new task to the end of the array
+            tasksArray.append(self)
+        }
+        
+        // 5. Save the updated tasks array to UserDefaults
+        Task.save(tasksArray)
     }
 }
