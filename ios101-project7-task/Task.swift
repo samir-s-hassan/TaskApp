@@ -44,10 +44,12 @@ struct Task: Codable {
 
     // The date the task was created
     // This property is set as the current date whenever the task is initially created.
-    let createdDate: Date = Date()
+    
+    //change these two properties from let to var -> IMPORTANT because we are deleting and creating tasks
+    var createdDate: Date = Date()
 
     // An id (Universal Unique Identifier) used to identify a task.
-    let id: String = UUID().uuidString
+    var id: String = UUID().uuidString
 }
 
 // MARK: - Task + UserDefaults
@@ -71,9 +73,15 @@ extension Task {
     // Retrieve an array of saved tasks from UserDefaults.
     static func getTasks() -> [Task] {
         
-        // TODO: Get the array of saved tasks from UserDefaults
-
-        return [] // 👈 replace with returned saved tasks
+        if let data = UserDefaults.standard.data(forKey: tasksKey) {
+            // 3.
+            let decodedMovies = try! JSONDecoder().decode([Task].self, from: data)
+            // 4.
+            return decodedMovies
+        } else {
+            // 5.
+            return []
+        }
     }
 
     // Add a new task or update an existing task with the current task.
