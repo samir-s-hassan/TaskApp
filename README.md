@@ -26,7 +26,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-[Video]](X) .
+[Video](https://www.loom.com/share/cb4dd4fc302c4fb281b63add4b6d0d58?sid=bb555098-99d9-42c3-93f6-04887b384f8e) .
 
 ## Notes
 
