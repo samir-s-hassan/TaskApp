@@ -1,7 +1,8 @@
 # Project 7 - Task
 Submitted by: Samir Hassan
 
-Task is an app that ... [TODO] 
+Task is an task manager, enabling easy task viewing, addition, and editing. With session persistence, your tasks stay safe even when you close and reopen the app. 
+Delete tasks, toggle completion status, and enjoy a handy calendar view for an overview of your tasks. Plus, edit tasks seamlessly from the task feed view, keeping you organized on the move.
 
 Time spent: 3 hours spent in total
 
