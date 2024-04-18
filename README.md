@@ -24,6 +24,12 @@ The following **additional** features are implemented:
 - [X] User can edit tasks by tapping on the task in the feed view
 - [X] List anything else that you can get done to improve the app functionality!
 
+## How to run
+
+1. Open Xcode
+2. Choose your simulator, it must be a phone e.g. iPhone 13, iPhone 14 Plus, iPhone 15 Pro, etc. 
+3. Build and run the app on Xcode (can use Command + R)
+
 ## Video Walkthrough
 
 [Video](https://www.loom.com/share/f4824fe543b146fa8e0d2edd4cf6dd29?sid=653efb30-5b4e-4fd4-8c8c-1cb5564eb36d) .
