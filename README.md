@@ -1,4 +1,4 @@
-# Project 7 - Task
+# Task Manager
 Submitted by: Samir Hassan
 
 Task is an task manager, enabling easy task viewing, addition, and editing. With session persistence, your tasks stay safe even when you close and reopen the app. 
